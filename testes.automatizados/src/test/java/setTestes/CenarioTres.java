@@ -19,7 +19,7 @@ public class CenarioTres {
 		driver.manage().window().maximize();
 		driver.get("https://wj-qa-automation-test.github.io/qa-test/");
 
-		driver.findElement(el.getFirstName()).sendKeys("TEstes WEBJUMP");
+		driver.findElement(el.getFirstName()).sendKeys("Testes WEBJUMP");
 		driver.findElement(el.getBotaoOne()).click();
 		driver.findElement(el.getOptionThree()).click();
 		driver.findElement(el.getExampleTwo()).click();

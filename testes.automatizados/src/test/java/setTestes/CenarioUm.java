@@ -3,6 +3,7 @@ package setTestes;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,8 +19,8 @@ public class CenarioUm {
 		driver.manage().window().maximize();
 		driver.get("https://wj-qa-automation-test.github.io/qa-test/");
 	
-		driver.findElement(el.getBotaoOne());
-		driver.findElement(el.getBotaoTwo());
+		driver.findElement(el.getBotaoOne()).click();
+		driver.findElement(el.getBotaoTwo()).click();
 		driver.findElement(el.getBotaoFour()).click();
 		boolean displayOne = driver.findElement(el.getBotaoOne()).isDisplayed();
 		boolean displayTwo = driver.findElement(el.getBotaoTwo()).isDisplayed();
@@ -28,5 +29,6 @@ public class CenarioUm {
 		assertTrue(displayOne);
 		assertTrue(displayTwo);
 		assertTrue(displayFour);
+		
 }
 }

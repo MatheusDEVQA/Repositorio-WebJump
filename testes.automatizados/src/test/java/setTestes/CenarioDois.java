@@ -3,6 +3,7 @@ package setTestes;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,12 +27,20 @@ public class CenarioDois {
 		WebElement iFrame = driver.findElement(el.getiFrame());
 		js.executeScript("arguments[0].scrollIntoView(true)", iFrame);
 
-		/**WebElement botao = driver.findElement(el.getBotaoOneIFrame());
+		// não tive tempo de colocar os metodos em outra classe
+
+		WebElement iframe = driver.findElement(By.xpath("//iframe[@src='buttons.html']"));
+		driver.switchTo().frame(iframe);
+
+		// clicar no botao iframe
+		driver.findElement(el.getBotaoTwoIFrame()).click();
+		WebElement botao = driver.findElement(el.getBotaoOneIFrame());
 		Actions act = new Actions(driver);
 		act.moveToElement(botao);
 		act.click().build().perform();
-		
-**/
+
+		driver.findElement(el.getBotaoFourIFrame()).click();
+
 		boolean displayOne = driver.findElement(el.getBotaoOneIFrame()).isDisplayed();
 		boolean displayTwo = driver.findElement(el.getBotaoTwoIFrame()).isDisplayed();
 		boolean displayFour = driver.findElement(el.getBotaoFour()).isDisplayed();
