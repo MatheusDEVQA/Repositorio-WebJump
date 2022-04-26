@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Metodos {
 	WebDriver driver;
-	public void abrirBrowser(String browser) {
+	public void abrirBrowser(String browser,String site) {
 		
 		if(browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
@@ -20,7 +20,8 @@ public class Metodos {
 			System.setProperty("webdriver.edge.driver", "./Drivers/msedgedriver.exe");
 			driver = new EdgeDriver();
 		}else System.out.println("Escolha outro navegador!");
-		
+		driver.manage().window().maximize();
+		driver.get(site);
 		
 	}
 	public void clicar(By elemento) {
@@ -30,6 +31,9 @@ public class Metodos {
 	public void escrever(By elemento, String texto) {
 		driver.findElement(elemento).sendKeys(texto);
 		
+	}
+	public void fecharNavegador() {
+		driver.close();
 	}
 	
 		
