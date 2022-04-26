@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import elementos.Elementos;
 
@@ -25,9 +26,12 @@ public class CenarioDois {
 		WebElement iFrame = driver.findElement(el.getiFrame());
 		js.executeScript("arguments[0].scrollIntoView(true)", iFrame);
 
-		WebElement botao = driver.findElement(el.getBotaoOneIFrame());
-		botao.submit();
-
+		/**WebElement botao = driver.findElement(el.getBotaoOneIFrame());
+		Actions act = new Actions(driver);
+		act.moveToElement(botao);
+		act.click().build().perform();
+		
+**/
 		boolean displayOne = driver.findElement(el.getBotaoOneIFrame()).isDisplayed();
 		boolean displayTwo = driver.findElement(el.getBotaoTwoIFrame()).isDisplayed();
 		boolean displayFour = driver.findElement(el.getBotaoFour()).isDisplayed();
