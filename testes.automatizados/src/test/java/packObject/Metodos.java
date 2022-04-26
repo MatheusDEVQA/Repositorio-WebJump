@@ -20,12 +20,14 @@ public class Metodos {
 			System.setProperty("webdriver.edge.driver", "./Drivers/msedgedriver.exe");
 			driver = new EdgeDriver();
 		}else System.out.println("Escolha outro navegador!");
+		//driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(site);
 		
 	}
 	public void clicar(By elemento) {
 		driver.findElement(elemento).click();
+		
 		
 	}
 	public void escrever(By elemento, String texto) {
